@@ -34,7 +34,7 @@ class Member(models.Model):
     Represents individual family members under a primary account
     """
     RELATIONSHIP_CHOICES = [
-        ('SPOUSE', 'Spouse'),
+        ('WIFE', 'wife'),
         ('CHILD', 'Child'),
         ('PARENT', 'Parent'),
         ('OTHER', 'Other'),
@@ -49,7 +49,7 @@ class Member(models.Model):
     primary_account = models.ForeignKey(
         PrimaryAccount, 
         on_delete=models.CASCADE,
-        related_name='members_account'
+        related_name='members'
     )
     name = models.CharField(max_length=255)
     email = models.EmailField(unique=True)
